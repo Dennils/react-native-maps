@@ -15,18 +15,18 @@ public class ViewChangesTracker {
   private final long fps = 40;
 
   private ViewChangesTracker() {
-    handler = new Handler(Looper.myLooper());
-    updateRunnable = new Runnable() {
-      @Override
-      public void run() {
-        hasScheduledFrame = false;
-        update();
+    // handler = new Handler(Looper.myLooper());
+    // updateRunnable = new Runnable() {
+    //   @Override
+    //   public void run() {
+    //     hasScheduledFrame = false;
+    //     update();
 
-        if (markers.size() > 0) {
-          handler.postDelayed(updateRunnable, fps);
-        }
-      }
-    };
+    //     if (markers.size() > 0) {
+    //       handler.postDelayed(updateRunnable, fps);
+    //     }
+    //   }
+    // };
   }
 
   static ViewChangesTracker getInstance() {
@@ -42,10 +42,10 @@ public class ViewChangesTracker {
   public void addMarker(AirMapMarker marker) {
     markers.add(marker);
 
-    if (!hasScheduledFrame) {
-      hasScheduledFrame = true;
-      handler.postDelayed(updateRunnable, fps);
-    }
+    // if (!hasScheduledFrame) {
+    //   hasScheduledFrame = true;
+    //   handler.postDelayed(updateRunnable, fps);
+    // }
   }
 
   public void removeMarker(AirMapMarker marker) {
